@@ -14,24 +14,20 @@
     font-weight: 400 !important;   /* makes it thinner */
     letter-spacing: 1px;
 }
-
 .section-title,
 h2 {
     font-family: Inter, sans-serif !important;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
-
 .section-title,
 h2 {
     font-size: 2.2rem;
 }
-
 .section-description {
     font-size: 1.1rem;
     line-height: 1.7;
 }
-
 *{box-sizing:border-box}
 html, body {
   height: auto;
@@ -45,7 +41,6 @@ body{
   -webkit-font-smoothing:antialiased;
   scroll-behavior:smooth;
 }
-
 .logo-title,
 .hero-content h1,
 .brand {
@@ -53,7 +48,6 @@ body{
     font-weight: 400;
 }
 .container{width:90%;max-width:var(--max-width);margin:0 auto}
-
 .site-header{
   position:fixed;left:0;right:0;top:0;z-index:50;
   backdrop-filter: blur(6px);
@@ -63,7 +57,6 @@ body{
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{color:var(--white);font-weight:700;letter-spacing:0.6px;font-size:1.15rem}
 .nav-links{display:flex;gap:20px;align-items:center;margin:0;padding:0;list-style:none}
-
 .nav-links a {
     display: inline-block;
     padding: 8px 18px;
@@ -74,17 +67,14 @@ body{
     letter-spacing: 0.3px;
     transition: 0.3s ease;
 }
-
 .nav-links a:hover {
     color: var(--white);
 }
-
 .nav-links a.active {
     background: var(--white);
     color: var(--navy);
     font-weight: 400 !important;
 }
-
 .hero {
     position: relative;
     min-height: 66vh;
@@ -108,7 +98,6 @@ body{
   mix-blend-mode: multiply;
   z-index:1;
 }
-
 .hero {
     position: relative;
     width: 100%;
@@ -123,13 +112,11 @@ body{
     color: #ffffff;
     background: url("banner.png") no-repeat center center/cover;
 }
-
 .hero-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
 }
-
 .hero-bg img {
     width: 100%;
     height: 100%;
@@ -139,11 +126,9 @@ body{
     transition: transform 10s linear;
     filter: brightness(.55);
 }
-
 .hero-bg img:hover {
     transform: scale(1.06);
 }
-
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -151,7 +136,6 @@ body{
     mix-blend-mode: multiply;
     z-index: 1;
 }
-
 .hero::before {
     content: "";
     position: absolute;
@@ -160,34 +144,28 @@ body{
     backdrop-filter: blur(2px);
     z-index: 1;
 }
-
 .hero-content {
     position: relative;
     z-index: 4;
     max-width: 500px;
     margin-left: 20px;
 }
-
-
 .hero-content h1 {
     font-size: 2.9rem;
     font-weight: 800;
     margin: 0 0 10px;
     color: #ffffff !important;
 }
-
 .hero-content p {
     font-size: 1.05rem;
     color: #e8e8e8 !important;
     margin: 0 0 14px;
 }
-
 .hero-buttons {
     display: flex;
     gap: 10px;
     margin-top: 10px;
 }
-
 .hero::before {
   content: "";
   position: absolute;
@@ -195,39 +173,33 @@ body{
   background: rgba(10, 20, 40, 0.58);
   backdrop-filter: blur(2px);
 }
-
 .hero-content {
   position: relative;
   z-index: 4;
   max-width: 500px;
 }
-
 .hero-content h1 {
   font-size: 2.9rem;
   font-weight: 800;
   margin: 0 0 10px;
   color: #ffffff !important;
 }
-
 .hero-content p {
   font-size: 1.05rem;
   color: #e8e8e8 !important;
   margin: 0 0 14px;
 }
-
 .hero-buttons {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
-
 .live-row {
   display: flex;
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
 }
-
 .live-badge {
   display: inline-flex;
   align-items: center;
@@ -239,11 +211,9 @@ body{
   font-weight: 700;
   font-size: 0.85rem;
 }
-
 .hero-episode-box {
   margin-top: 16px;
 }
-
 .hero-episode-box .card {
   background: rgba(0, 0, 0, 0.28);
   padding: 16px;
@@ -253,13 +223,11 @@ body{
   width: fit-content;
   margin-bottom: 10px;
 }
-
 .hero-episode-box .card p {
   margin: 0;
   color: #ffffff;
   font-size: 0.95rem;
 }
-
 
 .live-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .live-badge{
