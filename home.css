@@ -9,12 +9,18 @@
   --max-width:1150px;
 }
 *{
+
+
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 *{box-sizing:border-box}
-html,body{height:100%}
+html, body {
+  height: auto;
+  min-height: 100%;
+}
 body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -24,6 +30,12 @@ body{
   scroll-behavior:smooth;
 }
 
+.logo-title,
+.hero-content h1,
+.brand {
+    font-family: "Carter One", cursive !important;
+    font-weight: 400;
+}
 .container{width:90%;max-width:var(--max-width);margin:0 auto}
 
 .site-header{
@@ -35,12 +47,24 @@ body{
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{color:var(--white);font-weight:700;letter-spacing:0.6px;font-size:1.15rem}
 .nav-links{display:flex;gap:20px;align-items:center;margin:0;padding:0;list-style:none}
-.nav-links a{
-  color:var(--sky);text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px;
-  transition:all .18s ease;
+
+.nav-links a {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 8px;
+    color: var(--beige);
+    font-weight: 500;
+    transition: 0.3s ease;
 }
-.nav-links a:hover{background:rgba(255,255,255,0.05);transform:translateY(-2px)}
-.nav-links a.active{background:var(--white);color:var(--navy)}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-links a.active {
+    background: var(--white);
+    color: var(--navy);
+}
 
 .hero {
     position: relative;
@@ -72,15 +96,14 @@ body{
     height: 520px;
     min-height: 66vh;
     display: flex;
-    align-items: flex-end;      /* moves it down */
-    justify-content: flex-start; /* moves it left */
+    align-items: flex-end;      
+    justify-content: flex-start; 
     overflow: hidden;
-    padding: 100px 80px 60px; /* extra bottom padding */
+    padding: 100px 80px 60px; 
     margin-top: 0;
     color: #ffffff;
     background: url("banner.png") no-repeat center center/cover;
 }
-
 
 .hero-bg {
     position: absolute;
@@ -123,7 +146,9 @@ body{
     position: relative;
     z-index: 4;
     max-width: 500px;
+    margin-left: 20px;
 }
+
 
 .hero-content h1 {
     font-size: 2.9rem;
@@ -257,24 +282,40 @@ body{
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
   margin-top: 30px;
+  align-items: start;
 }
 
 .host-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   background: #ffffff;
   padding: 22px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   text-align: center;
-  transition: 0.3s ease;
   cursor: pointer;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+  will-change: transform;
   overflow: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.host-card {
+  height: 470px;
+  position: relative;
+}
+
+.host-details {
+  max-height: 180px !important;
+  overflow-y: auto;
 }
 
 .host-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
-
 
 .photo {
   width: 130px;
@@ -297,12 +338,25 @@ body{
 }
 
 .placeholder-initials {
+    display: none;
+}
+
+.placeholder-initials {
   background: linear-gradient(#C8D9E6, #9EB7CC);
   color: #2F4156;
   font-size: 32px;
   font-weight: 700;
 }
 
+.host-basic {
+  position: relative;
+  z-index: 3;  
+}
+
+.host-basic,
+.photo {
+    flex-shrink: 0;
+}
 .host-basic h3 {
   font-size: 1.15rem;
   color: #2F4156;
@@ -315,22 +369,25 @@ body{
 }
 
 .host-details {
-  margin-top: 14px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background: #F3F6F9;
   padding: 15px;
-  border-radius: 12px;
-  text-align: left;
+  border-radius: 0 0 12px 12px;
+
+  max-height: 60%;       
+  overflow-y: auto;
 
   opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-
-  transition: all 0.35s ease;
+  transform: translateY(20px);
+  transition: opacity .3s ease, transform .3s ease;
 }
 
 .host-card:hover .host-details {
   opacity: 1;
-  max-height: 350px;
+  transform: translateY(0);
 }
 
 .host-details h4 {
@@ -386,12 +443,12 @@ body{
     font-size: 0.9rem;
     color: var(--navy);
     opacity: 0.7;
-    margin-top: 40px;
-    margin-bottom: 20px;
 
-    padding-top: 20px;              
-    border-top: 1px solid #ccc;     
+    margin: 0;              
+    padding: 20px 0;        
+    border-top: 1px solid #ccc;
 }
+
 @media (max-width:900px){
   .hero-content{flex-direction:column;gap:18px}
   .hero-right{width:100%}
@@ -406,6 +463,24 @@ body{
 .socials{animation-delay:.28s}
 @keyframes fadeUp{to{opacity:1;transform:none}}
 
+@media (max-width: 900px) {
+  .host-card {
+    height: auto;            
+    padding-bottom: 18px;
+  }
+
+  .host-details {
+    position: relative;      
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    opacity: 1;              
+    margin-top: 12px;
+    border-radius: 10px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 80px 30px 40px;
@@ -419,4 +494,21 @@ body{
   .hero-content p {
     font-size: 0.95rem;
   }
+}
+
+.nav-links a[href="#socials"].active {
+    background: var(--white) !important;
+    color: var(--navy) !important;
+}
+
+.logo-title {
+  font-family: 'Poppins', sans-serif;   /* matches rounded logo style */
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  font-size: 3.2rem;                     /* slightly larger */
+  color: #ffffff;
+  text-shadow: 
+      0px 3px 6px rgba(0,0,0,0.28),
+      0px 1px 2px rgba(0,0,0,0.45);      /* logo-like glow */
+  text-transform: uppercase;
 }
